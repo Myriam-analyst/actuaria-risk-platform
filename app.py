@@ -51,7 +51,7 @@ html,body,[class*="css"]{ font-family:'Inter',sans-serif !important; }
   border-radius:12px; padding:1rem;
 }
 [data-testid="stMetricValue"]{ color:#3B82F6 !important; font-family:'JetBrains Mono',monospace !important; }
-[data-testid="stMetricLabel"]{ color:#94A3B8 !important; font-size:0.72rem !important; }
+[data-testid="stMetricLabel"]{ color:#CBD5E1 !important; font-size:0.72rem !important; }
 
 .stTabs [data-baseweb="tab-list"]{
   background:#0F1E38; border-bottom:1px solid #1E3A5F;
@@ -114,13 +114,13 @@ html,body,[class*="css"]{ font-family:'Inter',sans-serif !important; }
 # ══════════════════════════════════════════════════════════════════════════════
 PLOTLY_CFG = dict(
     template="plotly_dark", paper_bgcolor="#0A1628", plot_bgcolor="#0A1628",
-    font_family="Inter", font_color="#94A3B8",
+    font_family="Inter", font_color="#EAEEF3",
     title_font_color="#F1F5F9", title_font_size=14,
     margin=dict(t=50,b=40,l=40,r=20),
 )
 
 def header(title, subtitle="", icon=""):
-    sub_html = f"<div style='font-size:0.8rem;color:#64748B;margin-top:3px;'>{subtitle}</div>" if subtitle else ""
+    sub_html = f"<div style='font-size:0.8rem;color:#94A3B8;margin-top:3px;'>{subtitle}</div>" if subtitle else ""
     st.markdown(
         "<div class='fade-in' style='background:linear-gradient(135deg,#050B18 0%,#0A1F45 50%,#050B18 100%);"
         "border-bottom:1px solid rgba(59,130,246,0.35);padding:1.2rem 2rem;margin-bottom:2rem;"
@@ -136,17 +136,17 @@ def header(title, subtitle="", icon=""):
 def kpi(value, label, color="#3B82F6", icon="", delay=0):
     st.markdown(
         f"<div class='kpi-card' style='animation-delay:{delay}s;'>"
-        f"<div style='font-size:1.3rem;margin-bottom:6px;'>{icon}</div>"
-        f"<div style='font-size:1.65rem;font-weight:800;color:{color};font-family:JetBrains Mono,monospace;'>{value}</div>"
-        f"<div style='font-size:0.67rem;color:#64748B;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;'>{label}</div>"
+        f"<div style='font-size:1.2rem;margin-bottom:4px;'>{icon}</div>"
+        f"<div style='font-size:1.35rem;font-weight:800;color:{color};font-family:JetBrains Mono,monospace;line-height:1.2;word-break:break-all;'>{value}</div>"
+        f"<div style='font-size:0.65rem;color:#94A3B8;text-transform:uppercase;letter-spacing:1.2px;margin-top:6px;font-weight:500;'>{label}</div>"
         "</div>", unsafe_allow_html=True)
 
 def health_card(icon_s, label, value, color):
     st.markdown(
         "<div class='kpi-card' style='text-align:center;'>"
-        f"<div style='font-size:2.2rem;'>{icon_s}</div>"
-        f"<div style='font-size:0.72rem;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin:6px 0;'>{label}</div>"
-        f"<div style='font-family:JetBrains Mono;font-weight:700;font-size:1.05rem;color:{color};'>{value}</div>"
+        f"<div style='font-size:2rem;'>{icon_s}</div>"
+        f"<div style='font-size:0.7rem;color:#94A3B8;text-transform:uppercase;letter-spacing:1px;margin:6px 0;font-weight:500;'>{label}</div>"
+        f"<div style='font-family:JetBrains Mono;font-weight:700;font-size:0.95rem;color:{color};'>{value}</div>"
         "</div>", unsafe_allow_html=True)
 
 def ai_box(text):
@@ -190,7 +190,7 @@ def animated_progress(label, pct, color="#3B82F6"):
     st.markdown(
         "<div style='margin:4px 0;'>"
         f"<div style='display:flex;justify-content:space-between;margin-bottom:4px;'>"
-        f"<span style='font-size:0.8rem;color:#94A3B8;'>{label}</span>"
+        f"<span style='font-size:0.8rem;color:#CBD5E1;'>{label}</span>"
         f"<span style='font-size:0.8rem;color:{color};font-weight:600;'>{p:.1f}%</span></div>"
         "<div style='background:#1E3A5F;border-radius:4px;height:6px;'>"
         f"<div style='width:{p}%;height:100%;border-radius:4px;background:linear-gradient(90deg,{color},{color}aa);'></div>"
@@ -241,7 +241,7 @@ if not st.session_state.data_imported:
         "<div class='floating' style='font-size:4.5rem;margin-bottom:1rem;'>📊</div>"
         "<div style='font-size:0.7rem;color:#3B82F6;letter-spacing:6px;text-transform:uppercase;font-weight:600;margin-bottom:12px;'>ACTUARIA · RISK PRICING STUDIO v3.0</div>"
         "<div class='hero-gradient' style='font-size:3.5rem;font-weight:800;line-height:1.2;'>Plateforme de tarification<br>actuarielle intelligente</div>"
-        "<div style='font-size:1rem;color:#64748B;margin-top:1.2rem;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.9;'>"
+        "<div style='font-size:1rem;color:#94A3B8;margin-top:1.2rem;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.9;'>"
         "Modélisez la fréquence des sinistres · Calculez des primes pures en temps réel · Rapport PDF professionnel"
         "</div></div>", unsafe_allow_html=True)
 
@@ -261,7 +261,7 @@ if not st.session_state.data_imported:
                 f"<div class='feature-card' style='margin-bottom:1rem;min-height:120px;'>"
                 f"<div style='font-size:1.8rem;'>{icon}</div>"
                 f"<div style='font-weight:700;color:#F1F5F9;margin:6px 0;font-size:0.9rem;'>{title}</div>"
-                f"<div style='font-size:0.75rem;color:#64748B;line-height:1.5;'>{desc}</div>"
+                f"<div style='font-size:0.75rem;color:#94A3B8;line-height:1.5;'>{desc}</div>"
                 "</div>", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -270,7 +270,7 @@ if not st.session_state.data_imported:
     st.markdown(
         "<div style='text-align:center;margin-bottom:0.8rem;'>"
         "<div style='font-size:1.3rem;font-weight:700;color:#F1F5F9;'>Importez votre portefeuille pour commencer</div>"
-        "<div style='font-size:0.82rem;color:#64748B;margin-top:4px;'>CSV · Excel (.xlsx) · Parquet · JSON — jusqu'à 200 Mo</div>"
+        "<div style='font-size:0.82rem;color:#94A3B8;margin-top:4px;'>CSV · Excel (.xlsx) · Parquet · JSON — jusqu'à 200 Mo</div>"
         "</div>", unsafe_allow_html=True)
 
     _, cc, _ = st.columns([1,2,1])
@@ -355,7 +355,7 @@ df = st.session_state.df
 st.sidebar.markdown(
     "<div style='padding:1.5rem 1rem 1rem;border-bottom:1px solid rgba(30,58,95,0.8);margin-bottom:1rem;'>"
     "<div style='font-size:1.05rem;font-weight:800;color:#F1F5F9;letter-spacing:1px;'>ACTUARIA<span style='color:#3B82F6;'>.</span></div>"
-    "<div style='font-size:0.58rem;color:#475569;letter-spacing:2.5px;margin-top:2px;'>RISK PRICING STUDIO v3.0</div>"
+    "<div style='font-size:0.58rem;color:#94A3B8;letter-spacing:2.5px;margin-top:2px;'>RISK PRICING STUDIO v3.0</div>"
     "</div>", unsafe_allow_html=True)
 
 PAGES = {
@@ -375,7 +375,7 @@ PAGE = PAGES[sel]
 
 st.sidebar.markdown("---")
 st.sidebar.markdown(
-    "<div style='font-size:0.62rem;color:#475569;text-transform:uppercase;"
+    "<div style='font-size:0.62rem;color:#94A3B8;text-transform:uppercase;"
     "letter-spacing:2px;padding:0 8px;margin-bottom:6px;'>Paramètres métier</div>",
     unsafe_allow_html=True)
 
@@ -399,18 +399,19 @@ pct_done = steps_done / 3 * 100
 
 st.sidebar.markdown(
     "<div style='padding:0 0.5rem;margin:0.5rem 0;'>"
-    "<div style='font-size:0.65rem;color:#475569;margin-bottom:4px;'>"
+    "<div style='font-size:0.65rem;color:#94A3B8;margin-bottom:4px;'>"
     f"<span class='pulse-dot'></span>Progression : {pct_done:.0f}%</div>"
     "<div style='background:#1E3A5F;border-radius:4px;height:5px;'>"
     f"<div style='width:{pct_done}%;height:100%;border-radius:4px;"
     "background:linear-gradient(90deg,#3B82F6,#06B6D4);'></div></div>"
-    "<div class='shimmer-bar'></div></div>", unsafe_allow_html=True)
+    "<div style='font-size:0.65rem;color:#3B82F6;margin-top:3px;text-align:right;'>"
+    f"{pct_done:.0f}% complété</div></div>", unsafe_allow_html=True)
 
 st.sidebar.markdown(
     "<div style='margin:0.5rem;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.18);"
     "border-radius:10px;padding:0.8rem;'>"
     f"<div style='color:#10B981;font-weight:700;font-size:0.78rem;'>✔ {df.shape[0]:,} contrats chargés</div>"
-    f"<div style='color:#475569;font-size:0.72rem;margin-top:4px;font-family:JetBrains Mono;'>"
+    f"<div style='color:#94A3B8;font-size:0.72rem;margin-top:4px;font-family:JetBrains Mono;'>"
     f"{df.shape[1]} variables · Devise : {CUR_SYM}</div></div>", unsafe_allow_html=True)
 
 if st.sidebar.button("↩ Nouveau dataset", use_container_width=True):
@@ -730,7 +731,7 @@ elif PAGE == "models":
                 fr = go.Figure()
                 fr.add_trace(go.Scatter(x=fpr,y=tpr,fill="tozeroy",fillcolor="rgba(59,130,246,0.1)",
                                         line=dict(color="#3B82F6",width=2.5),name=f"AUC={auc_v:.4f}"))
-                fr.add_trace(go.Scatter(x=[0,1],y=[0,1],line=dict(color="#475569",dash="dash"),name="Aléatoire"))
+                fr.add_trace(go.Scatter(x=[0,1],y=[0,1],line=dict(color="#E0E3E8",dash="dash"),name="Aléatoire"))
                 fr.update_layout(title="Courbe ROC",xaxis_title="Faux positifs",yaxis_title="Vrais positifs",**PLOTLY_CFG)
                 st.plotly_chart(fr, use_container_width=True)
             with c_d:
@@ -1132,7 +1133,7 @@ elif PAGE == "report":
             now_r = datetime.now().strftime("%d/%m/%Y à %H:%M")
 
             NAVY  = rl_colors.HexColor("#0A1628"); BLUE  = rl_colors.HexColor("#3B82F6")
-            GRAY  = rl_colors.HexColor("#64748B"); LIGHT = rl_colors.HexColor("#F1F5F9")
+            GRAY  = rl_colors.HexColor("#EAEDF2"); LIGHT = rl_colors.HexColor("#F1F5F9")
             WHITE = rl_colors.white
 
             def PS(name, **kw):
@@ -1368,7 +1369,7 @@ elif PAGE == "settings":
         st.rerun()
 
     st.markdown(
-        "<div style='text-align:center;color:#1E3A5F;font-size:0.72rem;margin-top:2rem;"
+        "<div style='text-align:center;color:#64748B;font-size:0.72rem;margin-top:2rem;"
         "padding:1rem;border-top:1px solid #1E3A5F;'>"
         "ACTUARIA v3.0 · INSSEDS 2025-2026 · Streamlit · statsmodels · scikit-learn · plotly · reportlab"
         "</div>", unsafe_allow_html=True)
